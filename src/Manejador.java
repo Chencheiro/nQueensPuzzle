@@ -11,8 +11,18 @@ public class Manejador {
 
     }
 
-    public void solucionEncontrada(){
+    public void solucionEncontrada(Reina reina){
         this.soluciones.incrementSoluciones();
+        this.almacenarReina(reina);
+        this.soluciones.incrementSolutionIndex();
+    }
+
+    public void almacenarReina(Reina reina){
+        //System.out.println(reina);
+        soluciones.almacenarEnArreglo(reina);
+        if(reina.padre != null){
+            this.almacenarReina(reina.padre);
+        }
     }
 
     public void dibujaSolucion(Graphics g){
@@ -28,9 +38,8 @@ public class Manejador {
     }
 
     public static void main(String[] args) {
-        System.out.println("hi");
         //Soluciones s = new Soluciones(5);
         Manejador m = new Manejador(4);
-        System.out.println(m);
+        System.out.println(m.soluciones);
     }
 }
