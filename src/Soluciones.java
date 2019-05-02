@@ -3,7 +3,7 @@ public class Soluciones {
     private int current, numSoluciones;
 
     public Soluciones(int n){
-        this.soluciones = new Reina[20000000][n];//
+        this.soluciones = new Reina[1000000][n];//
         this.numSoluciones = 0;
         this.current = 0;
     }

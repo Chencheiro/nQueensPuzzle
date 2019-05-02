@@ -1,2 +1,2 @@
 # nQueensPuzzle
-Alexis sucks
+Alexis sucks :)
