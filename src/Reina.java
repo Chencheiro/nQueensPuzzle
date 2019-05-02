@@ -11,9 +11,17 @@ public class Reina {
         this.preguntar();
     }
 
+    /*private void borrar(){
+        System.out.println(this);
+        if(this.padre != null){
+            this.padre.borrar();
+        }
+    }*/
+
     private void validar(){ //Valida si crea una nueva reina
         if (this.id == this.manejador.getN()-1){
             this.manejador.solucionEncontrada(this);
+            //this.borrar();
             System.out.println();
         }
         else {
@@ -33,6 +41,7 @@ public class Reina {
         this.fila++;
         if (this.fila != this.manejador.getN()){
             this.preguntar();
+            //System.out.println(this.fila); 4444444
         }
     }
 

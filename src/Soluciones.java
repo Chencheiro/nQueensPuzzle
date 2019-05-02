@@ -1,15 +1,15 @@
 public class Soluciones {
-    Reina soluciones[][];
-    private int current, numSoluciones, indexReina, indexSolucion;
+    String soluciones[][];
+    protected int current, numSoluciones, indexReina, indexSolucion;
 
     public Soluciones(int n){
-        this.soluciones = new Reina[10][n];//
+        this.soluciones = new String[1000000][n];//
         this.numSoluciones = 0;
         this.current = 0;
     }
 
-    public Reina[] getNext(){
-        if (current == this.soluciones.length-1){
+    public String[] getNext(){
+        if (current == this.numSoluciones-1){
             return soluciones[current];
         }
         else {
@@ -18,7 +18,7 @@ public class Soluciones {
 
     }
 
-    public Reina[] getPrev(){
+    public String[] getPrev(){
         if (current == 0){
             return soluciones[current];
         }
@@ -40,11 +40,10 @@ public class Soluciones {
         this.indexReina = 0;
     }
 
-    public void almacenarEnArreglo(Reina reina){
+    public void almacenarEnArreglo(int id, int fila){
         //System.out.println(reina);
-        System.out.println(indexSolucion + ", " + indexReina + " = " + reina);
-        this.soluciones[indexSolucion][indexReina] = reina;
-        System.out.println("Arreglo: "+this.soluciones[indexSolucion][indexReina]);
+        System.out.println(indexSolucion + ", " + indexReina + " = " + id+":"+fila);
+        this.soluciones[indexSolucion][indexReina] = id+":"+fila;
         indexReina ++;
     }
 
@@ -52,7 +51,7 @@ public class Soluciones {
         String res = "";
         for (int i = 0; i < this.indexSolucion; i++) {
             for (int j = 0; j < this.indexReina; j++) {
-                res += this.soluciones[i][j]+", ";
+                res += this.soluciones[i][j] + ", ";
             }
             res += "\n";
 
