@@ -1,3 +1,5 @@
+//Isaac De la Cruz López
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,7 +9,7 @@ public class Controls extends JPanel {
     private Manejador manejador;
     private Panel panel;
     private JTextField tfN;
-    private JLabel title, relleno;
+    private JLabel title, solucionesLabel;
     private JButton setN, prev, next;
 
     public Controls(Manejador manejador, Panel panel){
@@ -28,19 +30,28 @@ public class Controls extends JPanel {
         this.setN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                manejador.setN(Integer.parseInt(Controls.this.tfN.getText()));
-                Controls.this.panel.repaint();
+                try{
+                    int value = Integer.parseInt(Controls.this.tfN.getText());
+                    cambiarManejador(value);
+                    Controls.this.soluciones();
+                    Controls.this.panel.repaint();
+                }
+                catch (Exception | StackOverflowError ex){
+
+                }
             }
         });
         this.add(setN);
 
-        this.relleno = new JLabel("----------------------------------");
-        this.add(this.relleno);
+        this.solucionesLabel = new JLabel("Soluciones: "+this.manejador.soluciones.getNumSoluciones());
+        this.solucionesLabel.setForeground(Color.white);
+        this.add(this.solucionesLabel);
 
         this.prev = new JButton("Prev");
         this.prev.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                Controls.this.manejador.soluciones.getPrev();
+                //Controls.this.manejador.soluciones.getPrev();
+                Controls.this.getPrev();
                 Controls.this.panel.repaint();
             }
         });
@@ -49,10 +60,29 @@ public class Controls extends JPanel {
         this.next = new JButton("Next");
         this.next.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                manejador.soluciones.getNext();
-                panel.repaint();
+                //manejador.soluciones.getNext();
+                Controls.this.getNext();
+                Controls.this.panel.repaint();
             }
         });
         this.add(next);
+    }
+
+    public void cambiarManejador(int n){
+        this.manejador = new Manejador(n);
+        System.out.println(this.manejador);
+        this.panel.setManejador(manejador);
+    }
+
+    public void getNext(){
+        this.manejador.soluciones.getNext();
+    }
+
+    public void getPrev(){
+        this.manejador.soluciones.getPrev();
+    }
+
+    public void soluciones(){
+        this.solucionesLabel.setText("Soluciones: "+this.manejador.soluciones.getNumSoluciones());
     }
 }

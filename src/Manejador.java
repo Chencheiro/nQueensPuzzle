@@ -1,4 +1,4 @@
-import sun.plugin2.util.ColorUtil;
+//Isaac De la Cruz López
 
 import java.awt.*;
 
@@ -10,7 +10,6 @@ public class Manejador {
         this.n = n;
         soluciones = new Soluciones(n);
         Reina r = new Reina(this, null, 0);
-
     }
 
     public void solucionEncontrada(Reina reina){
@@ -21,7 +20,7 @@ public class Manejador {
 
     public void almacenarReina(Reina reina){
         //System.out.println(reina);
-        soluciones.almacenarEnArreglo(reina.id, reina.fila);
+        soluciones.almacenarEnArreglo(reina);
         if(reina.padre != null){
             this.almacenarReina(reina.padre);
         }
@@ -55,11 +54,10 @@ public class Manejador {
     }
 
     public void dibujaSolucion(Graphics g){
-        String pos[] = {};
         this.dibujaTablero(g);
         for (int j = 0; j < soluciones.indexReina; j++) {
-            pos = soluciones.soluciones[soluciones.current][j].split(":");
-            this.dibujaFicha(g, Integer.parseInt(pos[0]), Integer.parseInt(pos[1]));
+            //pos = soluciones.soluciones[soluciones.current][j].split(":");
+            this.dibujaFicha(g, soluciones.soluciones[soluciones.current][j].id, soluciones.soluciones[soluciones.current][j].fila);
         }
     }
 

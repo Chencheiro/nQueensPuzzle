@@ -1,3 +1,5 @@
+//Isaac De la Cruz López
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,6 +13,10 @@ public class Panel extends JPanel {
 
     public void paint(Graphics g){
         manejador.dibujaSolucion(g);
+    }
+
+    public void setManejador(Manejador manejador){
+        this.manejador = manejador;
     }
 
 }

@@ -1,3 +1,5 @@
+//Isaac De la Cruz López
+
 public class Reina {
     Manejador manejador;
     Reina padre, hijo;
@@ -9,6 +11,14 @@ public class Reina {
         this.id = id;
         this.fila = 0;
         this.preguntar();
+    }
+
+    public Reina(Reina reina){
+        this.id = reina.id;
+        this.fila = reina.fila;
+        this.padre = null;
+        this.hijo = null;
+        this.manejador = null;
     }
 
     /*private void borrar(){
@@ -57,7 +67,7 @@ public class Reina {
         return false;
     }
 
-    public boolean responder(Reina reina) {
+    public boolean responder(Reina reina){
         if (validarPosicion(reina)) {
             return false;
         }

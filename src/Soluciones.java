@@ -1,14 +1,16 @@
+//Isaac De la Cruz López
+
 public class Soluciones {
-    String soluciones[][];
+    Reina soluciones[][];
     protected int current, numSoluciones, indexReina, indexSolucion;
 
     public Soluciones(int n){
-        this.soluciones = new String[1000000][n];//
+        this.soluciones = new Reina[1000000][n];//
         this.numSoluciones = 0;
         this.current = 0;
     }
 
-    public String[] getNext(){
+    public Reina[] getNext(){
         if (current == this.numSoluciones-1){
             return soluciones[current];
         }
@@ -18,7 +20,7 @@ public class Soluciones {
 
     }
 
-    public String[] getPrev(){
+    public Reina[] getPrev(){
         if (current == 0){
             return soluciones[current];
         }
@@ -40,10 +42,10 @@ public class Soluciones {
         this.indexReina = 0;
     }
 
-    public void almacenarEnArreglo(int id, int fila){
+    public void almacenarEnArreglo(Reina reina){
         //System.out.println(reina);
-        System.out.println(indexSolucion + ", " + indexReina + " = " + id+":"+fila);
-        this.soluciones[indexSolucion][indexReina] = id+":"+fila;
+        //System.out.println(indexSolucion + ", " + indexReina + " = " + id+":"+fila);
+        this.soluciones[indexSolucion][indexReina] = new Reina(reina);
         indexReina ++;
     }
 

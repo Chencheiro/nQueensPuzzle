@@ -1,3 +1,5 @@
+//Isaac De la Cruz López
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,6 +16,7 @@ public class Frame extends JFrame {
 
     public static void main(String[] args) {
         Manejador m = new Manejador(5);
+        System.out.println(m);
         Frame frame = new Frame(m);
         frame.setVisible(true);
         frame.setResizable(false);
